@@ -1,0 +1,35 @@
+# Load necessary libraries
+library(rmeta)
+library(meta)
+
+# Load the Cochrane data
+data(cochrane)
+str(cochrane)
+
+# Perform the meta-analysis
+steroid <- metabin(ev.trt, n.trt, 
+                   ev.ctrl, n.ctrl, 
+                   studlab = name,
+                   data = cochrane,
+                   sm = "RR")
+
+# Print the meta-analysis results
+print(steroid)
+
+# Plot the results
+plot(steroid)
+
+# Checking the heterogeneity statistics
+print(paste("Q:", steroid$Q))
+print(paste("I2:", steroid$I2))
+print(paste("p-value for Q:", steroid$pval.Q))
+
+# Create a funnel plot to check for publication bias
+funnel(steroid)
+
+# Sensitivity analysis: Removing the first study and rerunning the meta-analysis
+steroid_sensitivity <- update(steroid, subset = -1)
+plot(steroid_sensitivity)
+
+# Print the updated meta-analysis results
+print(steroid_sensitivity)
