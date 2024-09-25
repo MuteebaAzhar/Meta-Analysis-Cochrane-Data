@@ -46,11 +46,3 @@ To run this project, you need to have R and the following packages installed:
 install.packages("rmeta")
 install.packages("meta")
 
-
-**## License**
-This project is licensed under the MIT License. See the LICENSE file for details.
-
-**## Author**
-Muteeba Azhar
-Biochemist | Genomic Data Scientist
-LinkedIn Profile: https://www.linkedin.com/in/muteeba-azhar-a5a26b218/
